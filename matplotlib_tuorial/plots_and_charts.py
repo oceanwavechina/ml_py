@@ -69,7 +69,10 @@ def scatter_plots():
     x = [1, 2, 3, 4, 5, 6, 7, 8]
     y = [4, 6, 7, 1, 9, 2, 8, 2]
 
-    plt.scatter(x, y, label='skitcat')
+    y2 = [12, 3, 2, 13, 4, 9, 10, 1]
+
+    plt.scatter(x, y, label='skitcat', marker='+', s=100)
+    plt.scatter(x, y2, label='skitcat', marker='o', s=100)
 
     plt.xlabel('Plot Number')
     plt.ylabel('Important var')
@@ -78,8 +81,42 @@ def scatter_plots():
     plt.show()
 
 
+def stack_plots():
+    days = [1, 2, 3, 4, 5]
+    sleeping = [7, 8, 6, 11, 7]
+    eating = [2, 3, 4, 3, 2]
+    working = [7, 8, 7, 2, 2]
+    playing = [8, 5, 7, 8, 13]
+
+    plt.stackplot(days, sleeping, eating, working, playing, colors=['m', 'c', 'r', 'k'], labels=['sleeping', 'eating', 'working', 'playing'])
+
+    plt.xlabel('Plot Number')
+    plt.ylabel('Important var')
+    plt.title('Interesting Graph\nCheck it out')
+    plt.legend()
+    plt.show()
+
+
+def pie_charts():
+    slices = [7, 2, 2, 13]
+    activities = ['sleeping', 'eating', 'working', 'playing']
+    colors = ['c', 'm', 'r', 'b']
+
+    plt.pie(slices,
+            labels=activities,
+            colors=colors,
+            shadow=True,
+            explode=(0, 0.1, 0.5, 0),
+            autopct='%1.1f%%')
+
+    plt.title('Interesting Graph\nCheck it out')
+    plt.show()
+
+
 if __name__ == '__main__':
     # line()
     # barchart()
     # histograms()
-    scatter_plots
+    # scatter_plots()
+    # stack_plots()
+    pie_charts()
