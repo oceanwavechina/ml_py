@@ -197,7 +197,7 @@ def candlestick_with_subplot():
     leg.get_frame().set_alpha(0.4)
 
     plt.show()
-    fig.savefig('icbc.png', facecolor=fig.get_facecolor())
+    #fig.savefig('icbc.png', facecolor=fig.get_facecolor())
 
 
 if __name__ == '__main__':
