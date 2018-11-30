@@ -1,0 +1,12 @@
+basemap==1.1.0
+cycler==0.10.0
+Cython==0.29.1
+kiwisolver==1.0.1
+matplotlib==3.0.2
+mpl-finance==0.10.0
+numpy==1.15.4
+pyparsing==2.3.0
+pyproj==1.9.5.1
+pyshp==2.0.1
+python-dateutil==2.7.5
+six==1.11.0

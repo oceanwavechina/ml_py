@@ -8,6 +8,7 @@ https://www.youtube.com/watch?v=ZyTO4SwhSeE&list=PLQVvvaa0QuDfefDfXb9Yf0la1fPDKl
 '''
 
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def line():
@@ -113,10 +114,28 @@ def pie_charts():
     plt.show()
 
 
+def numpy_test():
+    N = 8
+    y = np.zeros(N)
+    x1 = np.linspace(0, 10, N, endpoint=True)
+    x2 = np.linspace(0, 10, N, endpoint=False)
+
+    plt.plot(x1, y, 'o--', label='with_endpoint')
+    plt.plot(x2, y - 0.5, '4', label='without_endpoint')
+    plt.ylim([-1, 1])
+    plt.xlabel('xlabel')
+    plt.ylabel('ylabel')
+
+    plt.legend()
+
+    plt.show()
+
+
 if __name__ == '__main__':
     # line()
     # barchart()
     # histograms()
     # scatter_plots()
     # stack_plots()
-    pie_charts()
+    # pie_charts()
+    numpy_test()

@@ -27,7 +27,7 @@ def spines_and_horizontal_line():
                                                           delimiter=',',
                                                           skiprows=1,
                                                           unpack=True,
-                                                          encoding='gbk',
+                                                          encoding='utf8',
                                                           converters={0: bytespdata2num('%Y-%m-%d')},
                                                           usecols=(0, 3, 4, 5, 6, 13))
 
