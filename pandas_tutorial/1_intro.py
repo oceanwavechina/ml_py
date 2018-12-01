@@ -10,7 +10,6 @@ import pandas_datareader.data as web
 import matplotlib.pyplot as plt
 from matplotlib import style
 import numpy as np
-from unittest.mock import inplace
 
 style.use('ggplot')
 

@@ -6,14 +6,12 @@ Created on Dec 1, 2018
 
 import quandl
 import pandas as pd
-from _operator import index
-from unittest.mock import inplace
 
 
 def quandl_data():
-    #     api_key = open('quandlapikey.txt', 'r').read().strip('\n')
-    #     df = quandl.get('FMAC/HPI_AK', authtoken=api_key)
-    #     print(df.head())
+    api_key = open('quandlapikey.txt', 'r').read().strip('\n')
+    df = quandl.get('FMAC/HPI_AK', authtoken=api_key)
+    print(df.head())
 
     fiddy_states = pd.read_html("https://simple.wikipedia.org/wiki/List_of_U.S._states")
     print(fiddy_states)
