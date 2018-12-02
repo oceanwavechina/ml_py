@@ -47,7 +47,7 @@ def concatenating_data():
     print(df1.append(df2))
 
     s = pd.Series([80, 2, 50], index=['HPI', 'Int_rate', 'US_GDP_Thounsands'])
-    df4 = df1.append(s, ignore_index=True)
+    df4 = df1.merge(s, ignore_index=True)
     print(df1)
     print(df4)
 
