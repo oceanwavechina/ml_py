@@ -9,6 +9,7 @@ https://www.youtube.com/watch?v=ZyTO4SwhSeE&list=PLQVvvaa0QuDfefDfXb9Yf0la1fPDKl
 
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.spatial import ConvexHull
 
 
 def line():
@@ -131,6 +132,27 @@ def numpy_test():
     plt.show()
 
 
+def draw_hull():
+    # 给元素添加一个边界
+    points = np.random.rand(30, 2)
+    print(points)
+
+    # 下边这个函数是找到所有点的最外边的边界
+    hull = ConvexHull(points)
+
+    # 把点先画上
+    plt.plot(points[:, 0], points[:, 1], 'o')
+
+    # 画边
+    for simplex in hull.simplices:
+        print(points[simplex, 0], simplex)
+        # 这个simplex=[17 26], points[[17, 26], 0] 的用法指的是 选取17，26两行中的 第0列的两个元素
+        # 这个plot相当于是连接两个点
+        plt.plot(points[simplex, 0], points[simplex, 1], '-')
+
+    # plt.show()
+
+
 if __name__ == '__main__':
     # line()
     # barchart()
@@ -138,4 +160,5 @@ if __name__ == '__main__':
     # scatter_plots()
     # stack_plots()
     # pie_charts()
-    numpy_test()
+    # numpy_test()
+    draw_hull()
