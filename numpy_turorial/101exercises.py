@@ -124,6 +124,50 @@ def part2():
     np.set_printoptions(precision=30, threshold=1)
     print(rand_arr)
 
+    # 26. 获取特定的列
+    url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+    iris = np.genfromtxt(url, delimiter=',', dtype=None, encoding='utf8')
+    # print('25:', iris_1d, np.shape(iris_1d))
+    species = np.array([row[4] for row in iris])
+    print(species[:5])
+
+    # 28. 计算数组的均值，中位数，标准差
+    url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+    sepallength = np.genfromtxt(url, delimiter=',', dtype='float', usecols=[0])
+    mu, med, sd = np.mean(sepallength), np.median(sepallength), np.std(sepallength)
+    print(mu, med, sd)
+
+    # 29. 把数组元素进行归一化
+    S = (sepallength - sepallength.min()) / sepallength.ptp()
+    print('29: ', S)
+
+    # 36. 计算两列的相关性系数，当样本量较大时才有意义，是正相关还是负相关，以及相关程度
+    url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+    iris = np.genfromtxt(url, delimiter=',', dtype='float', usecols=[0, 1, 2, 3])
+    corr = np.corrcoef(iris[:, 0], iris[:, 2])[0, 1]
+    print('36: ', corr)
+
+    # 44. 二维数组中根据某一列进行排序, argsort()返回的是排序后的索引, 这个索引是全局的索引，所以可以用iris[index_array]的形式取数据
+    url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+    iris = np.genfromtxt(url, delimiter=',', dtype='object')
+    print('44: ', iris[iris[:, 2].argsort()][:20])
+
+    # 45. 找出出现次数最多的元素
+    vals, counts = np.unique(iris[:, 2], return_counts=True)
+    # 这里的 vals 和 counts 中的元素是一一对应的，找到counts的最大值的那个位置，也就找到了vals最大值的位置了
+    print(vals, counts)
+    print('45: ', vals[np.argmax(counts)])
+
+    # 48. 获取top n value 的位置和他们的值
+    np.random.seed(100)
+    a = np.random.uniform(1, 50, 20)
+    print('48: ', a.argsort(), a[a.argsort()][:-5])
+
+    # 58. 找到数组中重复的元素????
+    np.random.seed(100)
+    a = np.random.randint(0, 6, 8)
+    np.set_printoptions(threshold=100)
+
 
 if __name__ == '__main__':
     # part1()

@@ -150,7 +150,7 @@ def draw_hull():
         # 这个plot相当于是连接两个点
         plt.plot(points[simplex, 0], points[simplex, 1], '-')
 
-    # plt.show()
+    plt.show()
 
 
 if __name__ == '__main__':
