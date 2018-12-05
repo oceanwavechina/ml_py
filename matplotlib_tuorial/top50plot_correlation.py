@@ -2,10 +2,13 @@
 Created on Dec 3, 2018
 
 @author: liuyanan
+
+https://www.machinelearningplus.com/plots/top-50-matplotlib-visualizations-the-master-plots-python/#1.-Scatter-plot
 '''
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
+import seaborn as sns
 
 
 def scatter():
@@ -35,5 +38,19 @@ def scatter():
     plt.show()
 
 
+def correllogram():
+    # 呈现两两对，之间的相关性
+    df = pd.read_csv('https://raw.githubusercontent.com/selva86/datasets/master/mtcars.csv')
+
+    plt.figure(figsize=(12, 10), dpi=80)
+    sns.heatmap(df.corr(), xticklabels=df.corr().columns, yticklabels=df.corr().columns, cmap='RdYlGn', center=0, annot=True)
+
+    plt.title('mtcars correlation', fontsize=22)
+    plt.xticks(fontsize=12)
+    plt.yticks(fontsize=12)
+    plt.show()
+
+
 if __name__ == '__main__':
-    scatter()
+    # scatter()
+    correllogram()
