@@ -168,6 +168,24 @@ def part2():
     a = np.random.randint(0, 6, 8)
     np.set_printoptions(threshold=100)
 
+    # 62. 计算两个数组的欧几里得距离，这个是简单的相似度计算
+    a = np.array([1, 2, 3, 4, 5])
+    b1 = np.array([4, 5, 6, 7, 8])
+    b2 = np.array([3, 4, 5, 6, 7])
+    print('dist(a, a): ', np.linalg.norm(a - a))
+    print('dist(a, b1): ', np.linalg.norm(a - b1))
+    print('dist(a, b2): ', np.linalg.norm(a - b2))
+    # 归一化, 值越接近1， 相似度越高
+    print('norm_dist(a, a): ', 1 / (1 + np.linalg.norm(a - a)))
+    print('norm_dist(a, b1): ', 1 / (1 + np.linalg.norm(a - b1)))
+    print('norm_dist(a, b2): ', 1 / (1 + np.linalg.norm(a - b2)))
+
+    # 67. moving average
+    # 以1、2、3、4、5共5个数为例，window为3，计算过程为：（1+2+3）/3=2，（2+3+4）/3=3，（3+4+5）/3=4。
+    # 抚平短期波动， 反应长期趋势或周期
+    Z = np.random.randint(10, size=10)
+    print('moving average: ', np.convolve(Z, np.ones(3) / 3, mode='valid'))
+
 
 if __name__ == '__main__':
     # part1()
