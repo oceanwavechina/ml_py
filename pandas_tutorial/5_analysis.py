@@ -159,6 +159,7 @@ def rolling_and_mapping():
 
     housing_data['ma_apply_example'] = housing_data['M30'].rolling(10).apply(moving_average, raw=True)
     housing_data.dropna(inplace=True)
+    print(housing_data.head())
     return housing_data
 
 
