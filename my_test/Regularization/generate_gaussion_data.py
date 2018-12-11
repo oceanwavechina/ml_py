@@ -16,6 +16,7 @@ def generate_1D_data(loc_positive=1, loc_negative=-1, size=100):
     y = np.hstack((np.ones(size), np.zeros(size)))
     return X, y
 
+
 X, y = generate_1D_data()
 w = np.array([0, 0])
 
