@@ -106,12 +106,12 @@ def predict():
     # normalize
     X = preprocessing.scale(X)
     X = X[:-forcast_out]
+    # 这个是我们要预测的参数
     X_lately = X[-forcast_out:]
+    print(X_lately)
 
     df.dropna(inplace=True)
     y = np.array(df['label'])
-    y = np.array(df['label'])
-    print(len(X), len(y))   # 看看 X 和 y是不是一致的
 
     X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, test_size=0.2)
 
