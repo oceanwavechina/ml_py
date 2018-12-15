@@ -11,6 +11,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.ticker as mticker
 
+'''
+NOTE:
+1.  适用 线性回归 的数据，一般我们都能从数据的分布中看出来，
+    所以先把原始数据测分布图呈现出来，会对模型的选取比较有帮助
+    因为对于数据分布不呈线性的情况，适用线性回归，结果不会太好
+
+2.  为什么像股票数据用线性回归，精确度会比较高，因为股票价格本身
+    就是基于时间的线性分布
+    本程序中的数据从分布看也是线性相关的（虽然是多变量的）
+'''
+
 # 加载数据，指定X，y
 ad_data = pd.read_csv("Advertising.csv", index_col=0)
 ad_data['forcast'] = np.nan
