@@ -2,6 +2,9 @@
 Created on Dec 31, 2018
 
 @author: liuyanan
+
+margin 的计算方法
+
 '''
 
 import numpy as np

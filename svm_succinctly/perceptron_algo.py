@@ -2,6 +2,9 @@
 Created on Dec 30, 2018
 
 @author: liuyanan
+
+感知器算法的实现
+
 '''
 import matplotlib.pyplot as plt
 from matplotlib import style
