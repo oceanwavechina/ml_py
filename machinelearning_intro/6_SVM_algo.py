@@ -8,6 +8,24 @@ Created on Dec 22, 2018
     http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html
     https://www.zhihu.com/question/38586401/answer/134473412
     https://blog.csdn.net/ndzzl/article/details/79079561
+
+因为有
+    w.x+b = 0  hyperplane (the decision boundary)
+    w.x+b = 1  positive class(这个平面上的并不是所有的正分类的样本，而仅仅是support vector上的样本)
+    w.x+b = -1  negative class(这个平面上的并不是所有的负分类的样本，而仅仅是support vector上的样本)
+所以
+    对于一个样本，其分类为 hyposisthy = sign(w.x+b)
+所以
+    我们要找到 hyposisthy 中的 w， b 是多少
+其中
+    the optimation objective is to minimize(||w||)(注意是w的norm) and maximize(b)
+    the constraint is yi*(xi.w+b) >= 1 
+        也就是 class * (knownFeatures . w + b) >= 1
+        也就是，我们要找到满足上式的所有的 w, b 中最小的 w 和最大的 b
+        w是一个shape为[5,3]的向量（假设我们有两个features）
+
+
+这个naive的方法不是数学上推导的公式，而是根据svm的思想，用暴力破解的方法找到hyperplane
 '''
 
 import matplotlib.pyplot as plt
@@ -26,10 +44,15 @@ class Support_Vector_Machine:
             self.fig = plt.figure()
             self.ax = self.fig.add_subplot(1, 1, 1)
 
-    def fit(self, data):
+    def fit(self, data):        
         self.data = data
         # { ||w|| : [w, b] }
         opt_dict = {}
+
+        '''
+            我们在计算w的norm的时候，这些正负都不会对norm有影响，
+            但是会影响w.x+b的方向
+        '''
         transforms = [[1, 1], [-1, 1], [-1, -1], [1, -1]]
 
         all_data = []
@@ -58,6 +81,10 @@ class Support_Vector_Machine:
         # first element of w
         latest_optimum = self.max_feature_value * 10
 
+        '''
+            这个方法是暴力破解
+            这个for循环是不断测试越来余越小的w, 和越来越大的b
+        '''
         for step in step_sizes:
             w = np.array([latest_optimum, latest_optimum])
             # we can do this because convex
