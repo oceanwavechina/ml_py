@@ -83,13 +83,17 @@ class Support_Vector_Machine:
 
         '''
             这个方法是暴力破解
-            这个for循环是不断测试越来余越小的w, 和越来越大的b
+            这个for循环是不断测试越来越小的w
         '''
         for step in step_sizes:
             w = np.array([latest_optimum, latest_optimum])
             # we can do this because convex
             optimized = False
             while not optimized:
+
+                '''
+                    这个for循环是找越来越大的b
+                '''
                 for b in np.arange(-1 * (self.max_feature_value * b_range_multiple),
                                    self.max_feature_value * b_range_multiple,
                                    step * b_multiple):
