@@ -25,7 +25,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import style
 import random
-from scipy.linalg._solve_toeplitz import float64
 
 style.use('fivethirtyeight')
 
@@ -50,7 +49,7 @@ def create_dataset(hm, variance, step=2, correlation=False):
         elif correlation and correlation == 'neg':
             val -= step
     xs = [i for i in range(len(ys))]
-    return np.array(xs, dtype=float64), np.array(ys, dtype=np.float64)
+    return np.array(xs, dtype=np.float64), np.array(ys, dtype=np.float64)
 
 
 def best_fit_slop_and_intercept(xs, ys):

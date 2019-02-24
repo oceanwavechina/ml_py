@@ -9,6 +9,17 @@ Created on Dec 22, 2018
     https://www.zhihu.com/question/38586401/answer/134473412
     https://blog.csdn.net/ndzzl/article/details/79079561
 
+
+预备知识：
+    二向量点乘积几何意义：
+        可以用来表征或计算两个向量的夹角，以及b向量在a向量上的投影
+            a.b = |a||b|cosΘ  =>  Θ = acc cos( a.b / |a||b| )
+        根据上述公式可以计算a，b两个向量的夹角，从而可以判断两个向量的方向关系
+            a.b>0   同向，夹角在0到90度之间
+            a.b=0   正交，垂直
+            a.b<0   反向，夹角在90到180度之间
+        
+
 因为有
     w.x+b = 0  hyperplane (the decision boundary)
     w.x+b = 1  positive class(这个平面上的并不是所有的正分类的样本，而仅仅是support vector上的样本)
