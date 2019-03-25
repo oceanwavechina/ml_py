@@ -10,8 +10,9 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 style.use('ggplot')
 
-x_data = np.float32(np.random.rand(2, 100))
-print('x_data', x_data)
+# 转换type的正确方法
+x_data = np.random.rand(2, 100).astype(np.float32)
+# print('x_data', x_data, 'type(x_data)',type(x_data))
 y_data = np.dot([0.100, 0.200], x_data) + 0.300
 
 # 构造线性模型
