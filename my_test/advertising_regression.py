@@ -19,7 +19,7 @@ NOTE:
 '''
 
 # 加载数据，指定X，y
-ad_data = pd.read_csv("Advertising.csv", index_col=0)
+ad_data = pd.read_csv("data/Advertising.csv", index_col=0)
 ad_data['forcast'] = np.nan
 
 
