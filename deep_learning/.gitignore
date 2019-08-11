@@ -1,1 +1,4 @@
 epic_num_reader.model
+Datasets/
+*.pickle
+.logs/
